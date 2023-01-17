@@ -1965,6 +1965,71 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427854457}
   m_Mesh: {fileID: 7828730201557054617, guid: b028c90d3d17c7849a589391cd891c6c, type: 3}
+--- !u!1 &450101869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 450101871}
+  - component: {fileID: 450101870}
+  m_Layer: 0
+  m_Name: "\u5B78\u7FD2\u8CC7\u6599\u985E\u578B"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &450101870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450101869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4542381ee69468409aff840f84071d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 0}
+  video: {fileID: 0}
+  picture: {fileID: 0}
+  material: {fileID: 0}
+  key: 0
+  keyJump: 32
+  keyFire: 323
+  color: {r: 0, g: 0, b: 0, a: 0}
+  red: {r: 1, g: 0, b: 0, a: 1}
+  yellow: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  colorCustom1: {r: 1, g: 0.5, b: 0, a: 1}
+  colorCustom2: {r: 0, g: 0.5, b: 1, a: 0.5}
+  v2: {x: 0, y: 0}
+  v3: {x: 0, y: 0, z: 0}
+  v4: {x: 0, y: 0, z: 0, w: 0}
+  v3Zero: {x: 0, y: 0, z: 0}
+  v3One: {x: 1, y: 1, z: 1}
+  v3R: {x: 1, y: 0, z: 0}
+  v3U: {x: 0, y: 1, z: 0}
+  v3F: {x: 0, y: 0, z: 1}
+  v3Custom: {x: 0.5, y: 99.9, z: -3.35}
+--- !u!4 &450101871
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450101869}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &485176852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2299,6 +2364,14 @@ MonoBehaviour:
   namePlayer: '#Julee'
   isPass: 0
   hasWeapon: 1
+  hp: 100
+  "\u8840\u91CF": 999
+  weapon: "\u7F8E\u5DE5\u5200"
+  speed: 3.5
+  isDead: 0
+  prop: "\u7D05\u8272\u85E5\u6C34"
+  countEnemy: 3
+  numberLevel: 10
 --- !u!4 &571364228
 Transform:
   m_ObjectHideFlags: 0
