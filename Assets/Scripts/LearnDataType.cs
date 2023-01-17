@@ -1,43 +1,53 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.Video;
 
 namespace Julee
 {
     /// <summary>
-    /// ¾Ç²ß Unity ±`¨£ªº¸ê®ÆÃş«¬
+    /// å­¸ç¿’ Unity å¸¸è¦‹çš„è³‡æ–™é¡å‹
     /// </summary>
     public class LearnDataType : MonoBehaviour
     {
-        // Àx¦s¸ê®Æ¦p­µ¼Ö¼v¤ù¹Ï¤ù®×¥ó
-        [Header("Àx¦s¸ê®ÆÃş«¬")]
-        public AudioClip sound;    // ¥i¦s©ñ­µ¼Ö mp3 ogg avi
-        public VideoClip video;    // ¦s©ñ¼v¤ù mp4 ogg wmv
-        public Sprite picture;     // ¥i¦s©ñ¹Ï¤ù png jpg psd
-        public Material material;  // ¥i¦s©ñ§÷½è²y
-        public KeyCode key;        // ¥i¦s©ñ·Æ¹« Áä½L ·n±ì
+        // å„²å­˜è³‡æ–™å¦‚éŸ³æ¨‚å½±ç‰‡åœ–ç‰‡æ¡ˆä»¶
+        [Header("å„²å­˜è³‡æ–™é¡å‹")]
+        public AudioClip sound;    // å¯å­˜æ”¾éŸ³æ¨‚ mp3 ogg avi
+        public VideoClip video;    // å­˜æ”¾å½±ç‰‡ mp4 ogg wmv
+        public Sprite picture;     // å¯å­˜æ”¾åœ–ç‰‡ png jpg psd
+        public Material material;  // å¯å­˜æ”¾æè³ªçƒ
+        public KeyCode key;        // å¯å­˜æ”¾æ»‘é¼  éµç›¤ æ–æ¡¿
 
-        // enum ¦CÁ| (¤U©Ô¿ï³æ)
+        // enum åˆ—èˆ‰ (ä¸‹æ‹‰é¸å–®)
         public KeyCode keyJump = KeyCode.Space;
-        public KeyCode keyFire = KeyCode.Mouse0;   // ·Æ¹«¥ªÁä
+        public KeyCode keyFire = KeyCode.Mouse0;   // æ»‘é¼ å·¦éµ
 
-        [Header("ÃC¦â»P®y¼Ğ")]
-        public Color color;                                         // ¹w³]ÃC¦â¬°¶Â¦â³z©ú
-        public Color red = Color.red;                               // ¤º«Ø¬õ
-        public Color yellow = Color.yellow;                         // ¤º«Ø¶À
-        public Color colorCustom1 = new Color(1, 0.5f, 0);          // ¦Û­qÃC¦â (R,G,B)
-        public Color colorCustom2 = new Color(0, 0.5f, 1, 0.5f);    // ¦Û­qÃC¦â (R,G,B,A)
+        [Header("é¡è‰²èˆ‡åº§æ¨™")]
+        public Color color;                                         // é è¨­é¡è‰²ç‚ºé»‘è‰²é€æ˜
+        public Color red = Color.red;                               // å…§å»ºç´…
+        public Color yellow = Color.yellow;                         // å…§å»ºé»ƒ
+        public Color colorCustom1 = new Color(1, 0.5f, 0);          // è‡ªè¨‚é¡è‰² (R,G,B)
+        public Color colorCustom2 = new Color(0, 0.5f, 1, 0.5f);    // è‡ªè¨‚é¡è‰² (R,G,B,A)
 
-        // ¤Gºû ¤Tºû ¥|ºû¦V¶q
+        // äºŒç¶­ ä¸‰ç¶­ å››ç¶­å‘é‡
         public Vector2 v2;
         public Vector3 v3;
         public Vector4 v4;
 
         public Vector3 v3Zero = Vector3.zero;  // 000
         public Vector3 v3One = Vector3.one;    // 111
-        public Vector3 v3R = Vector3.right;    // 100 - X ¥kÃä
-        public Vector3 v3U = Vector3.up;       // 010 - Y ¤W¤è
-        public Vector3 v3F = Vector3.forward;  // 001 - Z «e¤è
+        public Vector3 v3R = Vector3.right;    // 100 - X å³é‚Š
+        public Vector3 v3U = Vector3.up;       // 010 - Y ä¸Šæ–¹
+        public Vector3 v3F = Vector3.forward;  // 001 - Z å‰æ–¹
 
         public Vector3 v3Custom = new Vector3(0.5f, 99.9f, -3.35f);
+
+        [Header("ç‰©ä»¶èˆ‡å…ƒä»¶")]
+        // ç‰©ä»¶: å ´é ¸ä¸Šçš„éŠæˆ²ç‰©ä»¶ å‚³æ¡ˆå…§çš„é ç½®ç‰©
+        public GameObject objectSpider;
+        public GameObject prefabMarble;
+        // å…ƒä»¶:ç‰©ä»¶å±¬æ€§é¢æ¿ä¸Šå¯æŠ˜ç–Šçš„
+        public Transform transformSpider;
+        public Animator animatorSpider;
+        public Camera cameraMain;
+        public Light lightMain;
     }
 }
