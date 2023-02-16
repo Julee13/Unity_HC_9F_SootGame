@@ -1,37 +1,80 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace Julee
 {
     /// <summary>
-    /// ¾Ç²ß«DÀRºA API
-    /// «ü¹CÀ¸¤ºªº¹êÅéª«¥ó¡A©Ò¥H¨Ï¥Î³oÃşªº API «e·|¥ı»İ­n¦³¤@­Óª«¥ó
+    /// å­¸ç¿’ééœæ…‹ API
+    /// æŒ‡éŠæˆ²å…§çš„å¯¦é«”ç‰©ä»¶ï¼Œæ‰€ä»¥ä½¿ç”¨é€™é¡çš„ API å‰æœƒå…ˆéœ€è¦æœ‰ä¸€å€‹ç‰©ä»¶
     /// </summary>
     public class LearnAPI : MonoBehaviour
     {
-        public Transform Bear;  // ¸ê®ÆÃş«¬¨M©w´N¬O API ªºÃş«¬
+        #region æ¬„ä½
+        public Transform Bear;  // è³‡æ–™é¡å‹æ±ºå®šå°±æ˜¯ API çš„é¡å‹
 
         public Camera mainCamera;
 
         public Transform spiderGreen;
 
+        public Light mainLight;
+
+        public Transform girl;
+        #endregion
+
+        public BoxCollider cube;
+        public AudioSource testAudio;
+        public Canvas testCanvas;
+
+        public Rigidbody sphere;
+        public Transform transformCube;
+        public Transform transformSphere;
+        public Transform transformCapsule;
+
         private void Awake()
         {
-            // ¨BÆJ 1. ¥ı½T©w³õÀV¤W¦³¹êÅéª«¥ó¦s¦b
-            // ¨BÆJ 2. ©w¸q¸Óª«¥óªºÄæ¦ì (¨M©w¸ê®ÆÃş«¬)
-            // ¨BÆJ 3. ¦s¨ú«DÀRºAÄİ©Ê©Î¤èªk
+            // æ­¥é©Ÿ 1. å…ˆç¢ºå®šå ´é ¸ä¸Šæœ‰å¯¦é«”ç‰©ä»¶å­˜åœ¨
+            // æ­¥é©Ÿ 2. å®šç¾©è©²ç‰©ä»¶çš„æ¬„ä½ (æ±ºå®šè³‡æ–™é¡å‹)
+            // æ­¥é©Ÿ 3. å­˜å–ééœæ…‹å±¬æ€§æˆ–æ–¹æ³•
 
-            // «DÀRºAÄİ©Ê Properties
-            // 1. ¨ú±o«DÀRºAÄİ©Ê
-            // »yªk:
-            // Äæ¦ì¦WºÙ.«DÀRºAÄİ©Ê
-            print($"<color=#ff6633>Bear ªº®y¼Ğ: { Bear.position }</color>");
+            // ééœæ…‹å±¬æ€§ Properties
+            // 1. å–å¾—ééœæ…‹å±¬æ€§
+            // èªæ³•:
+            // æ¬„ä½åç¨±.ééœæ…‹å±¬æ€§
+            print($"<color=#ff6633>Bear çš„åº§æ¨™: { Bear.position }</color>");
 
-            print($"<color=#ff6633>Äá¼v¾÷ªº²`«×: { mainCamera.depth }</color>");
+            print($"<color=#ff6633>æ”å½±æ©Ÿçš„æ·±åº¦: { mainCamera.depth }</color>");
 
-            // 2. ¨ú±o«DÀRºAÄİ©Ê
-            // »yªk:
-            // Äæ¦ì¦WºÙ.«DÀRºAÄİ©Ê «ü©w ­È
-            spiderGreen.localScale = Vector3.one * 10;
+            // 2. å–å¾—ééœæ…‹å±¬æ€§
+            // èªæ³•:
+            // æ¬„ä½åç¨±.ééœæ…‹å±¬æ€§ æŒ‡å®š å€¼
+            spiderGreen.localScale = Vector3.one * 3;
+
+            mainLight.color = new Color(1, 0.3f, 0.3f);
+        }
+
+        private void Start()
+        {
+            print($"<color=#66ff99>{ cube.size }</color>");
+            print($"<color=#66ff99>{ testAudio.volume }</color>");
+            print($"<color=#66ff99>{ testCanvas.renderMode }</color>");
+
+            cube.center = new Vector3(1, 3, 1);
+            testAudio.volume = 0.5f;
+            testCanvas.renderMode = RenderMode.WorldSpace;
+
+            sphere.AddForce(0, 1500, 0);              // çƒé«”å¾€ä¸Šæ¨
+        }
+
+        private void Update()
+        {
+            // ééœæ…‹æ–¹æ³• Methods
+            // 3. ä½¿ç”¨ééœæ…‹æ–¹æ³•
+            // èªæ³•:
+            // æ¬„ä½åç¨±.ééœæ…‹æ–¹æ³•(å°æ‡‰çš„å¼•æ•¸)
+            girl.Rotate(0, 3, 0);
+
+            transformCube.LookAt(transformSphere);   // ç«‹æ–¹é«”é¢å‘çƒé«”
+
+            transformCapsule.Translate(0, 0, 3);     // è† å›Šå¾€Zç§»å‹•
         }
     }
 }
