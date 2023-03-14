@@ -59,8 +59,14 @@ namespace Julee
                 // 取得元件<>()
                 // GetComponent<元件名稱>()
 
-                // 暫存彈珠.取得元件<剛體>()
-                tempMarble.GetComponent<Rigidbody>().AddForce(0, 0, speedMarble);
+                // 暫存彈珠.取得元件<剛體>().添加推力(X,Y,Z) - 世界座標
+                // tempMarble.GetComponent<Rigidbody>().AddForce(0, 0, speedMarble);
+
+                // 將推力改為角色區域座標
+                // 右方 transforn.right
+                // 上方 transforn.up
+                // 前方 transforn.forward
+                tempMarble.GetComponent<Rigidbody>().AddForce(transform.forward * speedMarble);
 
                 // 條件 3
                 yield return new WaitForSeconds(intervalshoot);
@@ -75,20 +81,20 @@ namespace Julee
             // 如果 按下 左鍵 顯示箭頭
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                print("<color=#66ff99>玩家按下左鍵</color>");
+                // print("<color=#66ff99>玩家按下左鍵</color>");
 
                 objArrow.SetActive(true);                            // 顯示箭頭
             }
             else if (Input.GetKey(KeyCode.Mouse0))
             {
-                print("<color=#6699ff>玩家按住左鍵</color>");
+                // print("<color=#6699ff>玩家按住左鍵</color>");
 
                 MouseToWorld();
             }
             // 如果 放開 左鍵 隱藏箭頭
             else if (Input.GetKeyUp(KeyCode.Mouse0))
             {
-                print("<color=#ff6699>玩家放開左鍵</color>");
+                // print("<color=#ff6699>玩家放開左鍵</color>");
 
                 objArrow.SetActive(false);                           // 隱藏箭頭
 
@@ -113,7 +119,17 @@ namespace Julee
 
             // print($"<color=#ffff66>世界座標: { posWorld } </color>");
 
-            pointMouse.position = posWorld;       // 滑鼠座標物件.座標 = 世界座標
+            pointMouse.position = posWorld;            // 滑鼠座標物件.座標 = 世界座標
+
+            // 角色面向 滑鼠座標物件
+            // 取得此腳本物件的 Transform 寫法:transform
+            transform.LookAt(posWorld);               
+
+            // 鎖定角色 X 與 Z 軸
+            Vector3 angle = transform.eulerAngles;     // 取得角色座標
+            angle.x = 0;                               // x 歸零
+            angle.z = 0;                               // z 歸零
+            transform.eulerAngles = angle;             // 角色座標 = 新的座標
         }
         #endregion
     }
