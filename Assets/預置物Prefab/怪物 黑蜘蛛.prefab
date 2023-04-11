@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6363731580299999923}
   - component: {fileID: 6363731580299999924}
   - component: {fileID: 2030339695588261042}
+  - component: {fileID: -7720494900748604123}
   m_Layer: 0
   m_Name: "\u602A\u7269 \u9ED1\u8718\u86DB"
   m_TagString: Untagged
@@ -65,6 +66,19 @@ MonoBehaviour:
   imgHp: {fileID: 8412225231984327349}
   textHp: {fileID: 8613026531721309534}
   ani: {fileID: 1422256810512978110}
+--- !u!114 &-7720494900748604123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6363731580299999925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45269ff4cc5f4cb42b95d84b1a531294, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDistance: 2
 --- !u!1001 &4600840870810971779
 PrefabInstance:
   m_ObjectHideFlags: 0
