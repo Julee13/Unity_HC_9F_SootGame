@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 namespace Julee
 {
@@ -14,14 +15,30 @@ namespace Julee
     {
         [SerializeField, Header("要回收彈珠名稱")]
         private string nameMarble = "彈珠";
+        [SerializeField, Header("敵人回合移動的時間"), Range(0, 3)]
+        private float timeMove = 1.2f;
+        [SerializeField, Header("敵人生成時間"), Range(0, 3)]
+        private float timeSpawn = 0.5f;
+        [SerializeField, Header("文字層數")]
+        private TextMeshProUGUI textFloor;
+        [SerializeField, Header("最大層數"), Range(1, 50)]
+        private int maxFloor = 3;
 
-        private ControlSystem ControlSystem;
+        private int floor = 1;
         // 回收彈珠數量
         private int countRecycle;
+        private ControlSystem controlSystem;
+        private SpawnSystem spawnSystem;
+
+        // 吃到的彈珠數量
+        // HideInInspector 將欄位隱藏 (大部分搭配 public)
+        [HideInInspector]
+        public int countEatMarble;
 
         private void Awake()
         {
-            ControlSystem = FindObjectOfType<ControlSystem>();
+            controlSystem = FindObjectOfType<ControlSystem>();
+            spawnSystem = FindObjectOfType<SpawnSystem>();
         }
 
         private void OnTriggerEnter(Collider other)
@@ -35,7 +52,7 @@ namespace Julee
                 Destroy(other.gameObject);
 
                 // 如果 可發射數量 等於 回收數量 就換敵人回合
-                if (ControlSystem.contMarbleTotal == countRecycle)
+                if (controlSystem.contMarbleTotal == countRecycle)
                 {
                     // print($"<color=#9966ff>敵人回合</color>");
                     EnemyTurn();
@@ -55,6 +72,36 @@ namespace Julee
             {
                 moveSystems[i].StartMove();
             }
+
+            Invoke("DelaySpawn", timeMove);
+        }
+
+        /// <summary>
+        /// 延遲生成完成後換玩家回合
+        /// </summary>
+        private void DelaySpawn()
+        {
+            // 如果層數 < 最大層數 才會生成
+            if (floor < maxFloor)
+            {
+                spawnSystem.Spawn();
+                floor++;                            // 層數遞增
+                textFloor.text = floor.ToString();  // 更新層數文字介面
+            }
+            Invoke("PlayerTurn", timeSpawn);
+        }
+
+        /// <summary>
+        /// 玩家回合: 開啟控制器 回收彈珠數量歸零
+        /// </summary>
+        private void PlayerTurn()
+        {
+            controlSystem.enabled = true;
+            countRecycle = 0;
+
+            // 更新可發射的彈珠數量
+            controlSystem.contMarbleTotal += countEatMarble;
+            countEatMarble = 0;
         }
     }
 }
