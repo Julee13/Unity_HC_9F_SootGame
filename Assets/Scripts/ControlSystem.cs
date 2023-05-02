@@ -68,6 +68,10 @@ namespace Julee
                 // 前方 transforn.forward
                 tempMarble.GetComponent<Rigidbody>().AddForce(transform.forward * speedMarble);
 
+                // 先取得要播放的聲音再播放
+                AudioClip sound = SoundSystem.instance.soundFireMarble;
+                SoundSystem.instance.PlaySound(0.7f, 1.2f, sound);
+
                 // 條件 3
                 yield return new WaitForSeconds(intervalshoot);
             }
