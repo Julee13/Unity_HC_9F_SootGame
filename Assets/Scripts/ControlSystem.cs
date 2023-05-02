@@ -26,13 +26,20 @@ namespace Julee
         [SerializeField, Header("滑鼠座標")]
         private Transform pointMouse;
 
+        public static ControlSystem instance;
+
+        [Header("玩家資料")]
+        public DataBasic data;
+
         private string parAttack = "觸發攻擊";
+        private Animator ani;
         #endregion
 
         #region 事件
         private void Awake()
         {
-            
+            instance = this;
+            ani = GetComponent<Animator>();
         }
 
         private void Update()
@@ -50,6 +57,9 @@ namespace Julee
         {
             for (int i = 0; i < contMarbleTotal; i++)
             {
+                // 播放攻擊動畫
+                ani.SetTrigger(parAttack);
+
                 // Object.Instantiate(prefabMarble);    // 不簡寫寫法
 
                 // 生成(物件，座標，角度)；

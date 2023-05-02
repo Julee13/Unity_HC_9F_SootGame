@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19e7044c8593f9e4f920da2932be644b, type: 3}
   m_Name: "\u7DA0\u8718\u86DB"
   m_EditorClassIdentifier: 
-  hp: 300
+  hp: 400
   attack: 30
   prefabCoin: {fileID: 73902807686494190, guid: ecf7465e445f12d43aa64ff0196a8872, type: 3}
   coinDropCount: 40

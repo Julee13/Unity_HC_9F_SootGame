@@ -8635,6 +8635,7 @@ MonoBehaviour:
   pointSpawn: {fileID: 1281201802}
   objArrow: {fileID: 790266407}
   pointMouse: {fileID: 7558237}
+  data: {fileID: 11400000, guid: d083c95a3ec8cf54c887ab8d8075bf86, type: 2}
 --- !u!95 &1658635523 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: b7822eb5951163b48830b6d9bcbf48b4, type: 3}
