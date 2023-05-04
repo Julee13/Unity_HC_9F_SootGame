@@ -61,6 +61,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDistance: 2
+  endPosition: 1
+  data: {fileID: 0}
 --- !u!114 &4827504084183361243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +150,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5217041057133372346, guid: 21e643e701acacb43906920301a7e77d, type: 3}
     - {fileID: -1628246393341568798, guid: 21e643e701acacb43906920301a7e77d, type: 3}
+    - {fileID: 4651804759184352547, guid: 21e643e701acacb43906920301a7e77d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 21e643e701acacb43906920301a7e77d, type: 3}
 --- !u!4 &2276288059394519240 stripped
 Transform:
